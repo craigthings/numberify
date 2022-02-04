@@ -1,17 +1,41 @@
-<h2>Rectangle Creator</h2>
-<p>Count: <input id="count" value="5"></p>
-<button id="create">Create</button>
-<button id="cancel">Cancel</button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 13px 16px;
+}
+
+button {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+</style>
+
+<div class="options-container">
+    <div>
+      <input type="checkbox" id="number-frames-enabled" name="numberer">
+      <label for="number-frames-enabled" style="height:17px">Number Frame Labels</label>
+    </div>
+    <div>
+      <label for="prefix" style="height:17px">Frame Prefix (Optional):</label>
+      <input type="text" id="prefix" placeholder="Slide" name="numberer">
+    </div>
+    <button id="start">Numberfy</button>
+</div>
+
 <script>
-
-document.getElementById('create').onclick = () => {
+document.getElementById('start').onclick = () => {
   const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+  parent.postMessage({ pluginMessage: { 
+    numberFramesEnabled: document.getElementById('number-frames-enabled').checked,
+    prefix: document.getElementById('prefix').value,
+   } }, '*')
 }
-
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-}
-
 </script>
