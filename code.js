@@ -29,10 +29,10 @@ figma.ui.onmessage = (msg) => __awaiter(this, void 0, void 0, function* () {
             let fontName = textField.fontName;
             if (!fontName.family)
                 continue;
-            if (textField.name.indexOf('{p#}') > -1) {
+            if (textField.name.indexOf('{#}') > -1) {
                 console.log(fontName);
                 yield figma.loadFontAsync(fontName);
-                textField.characters = String(frameIndex);
+                textField.characters = textField.name.replace(/{#}/g, String(frameIndex));
             }
         }
     }
