@@ -2,9 +2,9 @@
   "name": "Numberify",
   "id": "1071202103896832078",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "bundle.js",
   "editorType": [
     "figma"
   ],
-  "ui": "ui.html"
+  "ui": "index.html"
 }

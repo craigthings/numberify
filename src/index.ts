@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 300, height: 153 });
+figma.showUI(__html__, { width: 190, height: 136 });
 
 // Calls to "parent.postMessage" from within the HTML page will trigger this
 // callback. The callback will be passed the "pluginMessage" property of the
@@ -11,7 +11,6 @@ figma.ui.onmessage = async msg => {
     let frameIndex = 0;
     for(let frame of frames) {
       frameIndex++;
-
       if(msg.numberFramesEnabled) frame.name = `${msg.prefix}${frameIndex}`;
 
       let node = frame as unknown as PageNode;
